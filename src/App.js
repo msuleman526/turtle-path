@@ -105,11 +105,25 @@ function App() {
 
   const createInitialPath = async () => {
     try {
-      const formattedLocations = INITIAL_COORDINATES.map((coord, index) => ({
+      const formattedLocations = INITIAL_COORDINATES.map((coord, index) => {
+      const now = new Date();
+      const options = {
+        month: '2-digit',
+        day: '2-digit',
+        year: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      };
+      const formattedDate = now.toLocaleString('en-US', options);
+
+      return {
         lat: coord.lat,
         lng: coord.lng,
         order: index,
-      }));
+        current_date: formattedDate,
+      };
+    });
 
       const response = await createPath('Path 1', formattedLocations);
       

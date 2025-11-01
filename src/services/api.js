@@ -74,7 +74,21 @@ export const deletePath = async (id) => {
 
 // Location APIs
 export const addLocation = async (pathId, lat, lng) => {
-  const response = await api.post(`/paths/${pathId}/locations`, { lat, lng });
+ const now = new Date();
+  const options = {
+    month: '2-digit',
+    day: '2-digit',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  const formattedDate = now.toLocaleString('en-US', options);
+  const response = await api.post(`/paths/${pathId}/locations`, {
+    lat,
+    lng,
+    current_date: formattedDate,
+  });
   return response.data;
 };
 
