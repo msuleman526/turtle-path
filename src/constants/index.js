@@ -17,7 +17,7 @@ export const INITIAL_COORDINATES = [
   { lat: 26.60524749734164, lng: -79.89783003160316 }
 ];
 
-export const GOOGLE_MAPS_API_KEY = 'AIzaSyAo1viD-Ut0TzXTyihevwuf-9tv_J3dPa0';
+export const GOOGLE_MAPS_API_KEY = 'AIzaSyB2UgyfKbhOovgh3NjOPku9LRCia8VwS8A';
 
 export const MAP_STYLES = {
   polylineOptions: {
