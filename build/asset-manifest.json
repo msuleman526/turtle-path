@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ed766b70.css",
+    "main.js": "/static/js/main.3ddfeb96.js",
+    "static/media/turtle-circle.png": "/static/media/turtle-circle.3f657d9e52bb278e7a2b.png",
+    "index.html": "/index.html",
+    "main.ed766b70.css.map": "/static/css/main.ed766b70.css.map",
+    "main.3ddfeb96.js.map": "/static/js/main.3ddfeb96.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed766b70.css",
+    "static/js/main.3ddfeb96.js"
+  ]
+}

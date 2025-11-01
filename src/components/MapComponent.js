@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { GoogleMap, Marker, Polyline, InfoWindow } from '@react-google-maps/api';
 import turtleCircle from '../assets/turtle-circle.png'; // last-point icon
 import deleteIcon from '../assets/delete.png'; // delete icon
+import turtle from '../assets/turtle1.png'; // delete icon
 
 const wrapperStyle = { position: 'relative', width: '100vw', height: '100vh' };
 const mapContainerStyle = { width: '100%', height: '100%' };
@@ -507,7 +508,7 @@ const MapComponent = ({
             }}
           >
             <div
-              style={{ minWidth: 140, height: 85 }}
+              style={{ minWidth: 140, height: 115 }}
               onMouseEnter={() => {
                 setHoverOverPopup(true);
                 clearHideTimer();
@@ -517,15 +518,20 @@ const MapComponent = ({
                 scheduleMaybeHide();
               }}
             >
-              <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: 20 }}>
-                {selectedMarker.path.name}
-              </p>
-              <p style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#666' }}>
-                Location: {selectedMarker.location.lat.toFixed(6)}, {selectedMarker.location.lng.toFixed(6)}
-              </p>
-              <p style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#666' }}>
-                Last Known location: {selectedMarker.location.current_date}
-              </p>
+              <div style={{display: 'inline-flex'}}>
+                 <img src={turtle} style={{width: 140, height: 110, borderRadius: 8}}/>  
+                 <div style={{display: 'block', marginLeft: 10, marginTop: 20}}>
+                    <p style={{ margin: '0 0 6px 0', fontWeight: 'bold', fontSize: 20 }}>
+                      {selectedMarker.path.name}
+                    </p>
+                     <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: '#666' }}>
+                      Location: {selectedMarker.location.lat.toFixed(6)}, {selectedMarker.location.lng.toFixed(6)}
+                    </p>
+                    <p style={{ margin: '0 0 6px 0', fontSize: '16px', color: '#666' }}>
+                      Last Known location: {selectedMarker.location.current_date}
+                    </p>
+                 </div>
+              </div>
               {isAuthenticated && selectedPath?._id === selectedMarker.path._id && (
                 <img
                   onClick={handleDeleteLocation}
